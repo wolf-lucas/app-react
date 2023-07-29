@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '../../utils';
+
+$background-color: map.get(utils.$colors-backgorund, '130');
+$font-color: map.get(utils.$colors-font, '100');
+
+.sidebar {
+    transition: all 0.5s ease;
+    display: none;
+    grid-area: 'sidebar';
+    color: $font-color;
+    
+    &.active {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(100vw/3);
+        min-width: 40rem;
+        height: 100%;
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        background-color: $background-color;
+    }
+
+    &__content {
+        margin: 1rem;
+    }
+
+    &__header {
+        margin: 1rem;
+        font-size: 25px;
+    }
+
+    
+};

@@ -1,0 +1,20 @@
+@use '../../utils';
+
+.section-cards {
+    width: 100%;
+    max-width: utils.$header-max-width + 20rem;
+    margin: 2rem;
+    padding: 2rem;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        margin-bottom: 2rem;
+
+        p {
+            margin: auto;
+            display: none;
+        }
+    }
+}

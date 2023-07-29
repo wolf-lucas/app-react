@@ -1,0 +1,29 @@
+
+< App >
+< ShoppingCartProvider >
+< Home > ## Home ##
+< Layout >
+    < Header >
+        < NavBar />
+    </ Header >
+    < MainContent >
+        < ItemsProvider > -> (Context Provider)
+            < TopProducts > -> (Consumer)
+                < SlickSlider />
+            </ TopProducts >
+            < CardsSection >
+                < SearchBar > -> (Consumer)
+                < CardList > -> (Consumer)
+                    < CardsContainer >
+                        < Card /> || < CardPreloader />
+                    </ CardsContainer >
+                </ CardList >
+            </ CardsSection >
+        </ ItemsProvider >
+    </ MainContent >
+    < Sidebar />
+    < Footer />
+</ Layout >
+< Home />
+< ShoppingCartProvider >
+

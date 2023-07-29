@@ -1,0 +1,37 @@
+@use '../../utils';
+@use 'sass:map';
+
+$base-backgorund-color: map.get(utils.$colors-backgorund, '100');
+$base-font-color: map.get(utils.$colors-font, '110');
+$cards-background-color: map.get(utils.$colors-backgorund, '100');
+$cards-font-color: map.get(utils.$colors-font, '110');
+$cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
+
+$container-extra-width: 4rem;
+
+.shopping-cart {
+    &__container {
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            box-shadow: $base-font-color -5px 0px 20px -1px;
+            background-color: map.get(utils.$colors-backgorund, '100');
+            color: $base-font-color;
+            width: utils.$cart-item-max-width + $container-extra-width;
+        }
+    }
+
+    &__total {
+        margin: 1rem;
+        padding-right: $container-extra-width - 2;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    &__checkout {
+        margin-left: 3rem;
+    }
+    
+}

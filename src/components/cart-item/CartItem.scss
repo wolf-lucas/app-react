@@ -1,0 +1,57 @@
+@use '../../utils';
+@use 'sass:map';
+
+$cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
+$cards-font-color: map.get(utils.$colors-font, '200');
+$background-color: map.get(utils.$colors-font, '00');
+
+.shop-cart {
+    
+
+    &__card {
+        margin: 1rem 0.5rem;
+        box-shadow: $cards-glow-backgroud-color 0px 5px 15px;
+        max-width: utils.$cart-item-max-width;
+    }
+    
+    &__article {
+        display: flex;
+        background-color: $background-color;
+        border: 0.5px solid #000;
+        border-radius: 10px;
+        color: #000;
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: .5rem;
+
+            .shop-cart__item {
+                &-price {
+                    margin-top: auto;
+                }
+                &-total {
+                    margin-top: auto;
+                }
+            }
+        }
+
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            padding: 1rem;
+        }
+
+        &-minus {
+            margin-top: auto;
+        }
+    }
+
+    &__image-container {
+        height: 10rem;
+        overflow: hidden;
+        position: relative;
+    }
+}

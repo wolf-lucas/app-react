@@ -1,0 +1,45 @@
+@use '../../utils';
+
+.section-top20 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__header {
+        margin: 2rem 0rem 1rem 0rem;
+        left: 10%
+    }
+
+    .top20-container {
+        display: block;
+    }
+}
+
+.section-cards {
+    width: 100%;
+    max-width: utils.$header-max-width + 20rem;
+    margin: 2rem;
+    padding: 2rem;
+    //box-shadow: $base-backgorund-color 10px 20px 30px 10px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        margin-bottom: 2rem;
+
+        p {
+            margin: auto;
+            display: none;
+        }
+    }
+    
+    .cards-container {
+        display: grid;
+        grid-auto-flow: dense;
+        gap: 2rem;
+        overflow-wrap: wrap;
+        grid-template-columns:
+            repeat(auto-fill, minmax(min(utils.$cards-max-width, 100%), 1fr));
+    }
+}

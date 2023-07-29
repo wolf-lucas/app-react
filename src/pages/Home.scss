@@ -1,0 +1,20 @@
+@use '../utils';
+@use 'sass:map';
+
+$base-backgorund-color: map.get(utils.$colors-backgorund, '100');
+$base-font-color: map.get(utils.$colors-font, '110');
+
+.main-side-container {
+    display: flex;
+    position: relative;
+}
+
+.main-container {
+    
+    .products-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

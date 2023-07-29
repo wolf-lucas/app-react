@@ -1,0 +1,10 @@
+@use '../../utils';
+
+.cards-container {
+    display: grid;
+    grid-auto-flow: dense;
+    gap: 2rem;
+    overflow-wrap: wrap;
+    grid-template-columns:
+        repeat(auto-fill, minmax(min(utils.$cards-max-width, 100%), 1fr));
+}
