@@ -60,7 +60,6 @@ function ShopppingCartProvider({ children }: Props) {
   }
 
   const [total, setTotal] = useState(getTotal())
-  console.log("Toggle menu esta:", isCartVisible)
   
   return (
     <ShopCartContext.Provider value = {{ cartItems, addItem,  removeItem, 

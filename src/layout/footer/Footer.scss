@@ -1,7 +1,7 @@
 @use '../../utils';
 @use 'sass:map';
 
-$background-color: map.get(utils.$colors-backgorund, '100');
+$background-color: map.get(utils.$color-pallete, '0');
 $font-color: map.get(utils.$colors-font, '110');
 
 .footer {

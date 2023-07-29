@@ -1,6 +1,10 @@
 @use '../utils';
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Quicksand:wght@400;700&family=Righteous&display=swap');
 
+#root {
+  font-size: 16px;
+}
+
 * {
     box-sizing: border-box;
     font-family: utils.$base-font-family;

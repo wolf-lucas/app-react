@@ -2,6 +2,7 @@ import './Card.scss';
 import { Item } from "../../interfaces/item/Item";
 import { useContext, useRef, useState } from 'react';
 import { ShopCartContext } from '../../context/ShopCartContext';
+import { Currency } from '../../config';
 
 type Props = {
     item: Item;
@@ -12,20 +13,33 @@ const Card = ({ item }: Props) => {
   const qtyInputRef = useRef(null)
   const shopCart = useContext(ShopCartContext)
   const [ formQty, setFormQty ] = useState(1)
+  const [ isValid, setIsValid ] = useState<boolean>(true)
+
+  const invalidForm: React.CSSProperties = {
+    boxShadow: '0px 0px 10px 5px #BF2011',
+  }
 
   const addToCart = () => {
-    if (qtyInputRef.current) {
+    if (qtyInputRef.current && formQty !== 0) {
       shopCart?.addItem(item, formQty)
+      setIsValid(true)
+    } else {
+      setIsValid(false)
     }
+  }
+
+  const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.currentTarget.value)
+    console.log(value)
+    value ? setFormQty(value) : setFormQty(0)
+    value > 0 ? setIsValid(true) : setIsValid(false)
   }
 
   const addBtn = () => {
     setFormQty(formQty + 1)
-  }
-
-  const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormQty(parseInt(e.currentTarget.value))
-  }
+    console.log('Esto es el form', formQty)
+    formQty > 0 ? setIsValid(true) : setIsValid(false)
+  } 
 
   return (
     <div className="card">
@@ -44,10 +58,11 @@ const Card = ({ item }: Props) => {
             {item.description}
           </p>
         <div className="card__price-container">
-          <h5 className="card__price">$ {item.price}</h5>
+          <h5 className="card__price">{Currency.USD.format(item.price)}</h5>
           <div className="card-quantity__form">
             <input 
-              type="text" 
+              type="text"
+              style={!isValid ? invalidForm : undefined}
               className="card-quantity__form-add-qty" 
               id="product_qty"  
               ref={qtyInputRef}

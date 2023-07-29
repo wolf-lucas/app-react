@@ -9,9 +9,9 @@ const PreLoader = ({component, quantity}: Props) => {
 
   return (
     <>
-      <h1>
-        Cargando...
-      </h1>
+      <h2>
+        Loading...
+      </h2>
     </>
   )
 };

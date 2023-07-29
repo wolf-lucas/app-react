@@ -1,9 +1,9 @@
 @use '../../utils';
 @use 'sass:map';
 
-$cards-background-color: map.get(utils.$colors-backgorund, '100');
+$cards-background-color: map.get(utils.$color-pallete, '0');
 $cards-font-color: map.get(utils.$colors-font, '110');
-$cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
+$cards-glow-backgroud-color: map.get(utils.$colors-font, '210');
 
 .card {
     background-color: $cards-background-color;
@@ -11,7 +11,7 @@ $cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
     max-height: utils.$cards-max-height;
     height: 27rem;
     border-radius: 2%;
-    box-shadow: $cards-glow-backgroud-color 0px 5px 15px;
+    box-shadow: $cards-glow-backgroud-color 5px 5px 15px;
     white-space: nowrap;
 
     &__article {
@@ -60,6 +60,10 @@ $cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
     }
     
     .card-quantity__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         &-add-qty {
             width: 2rem;
             border: none;
@@ -72,6 +76,7 @@ $cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
         }
 
         .btn {
+            margin: .2rem;
             border: none;
         }
     }

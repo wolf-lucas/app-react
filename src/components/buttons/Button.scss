@@ -2,7 +2,7 @@
 @use 'sass:map';
 
 .btn {
-    @include utils.background-color('120');
+    @include utils.background-color('100');
     @include utils.font-color('110');
     border-radius: .3rem;
     padding: .3rem .6rem;

@@ -1,11 +1,8 @@
 @use '../../utils';
 @use 'sass:map';
 
-$base-backgorund-color: map.get(utils.$colors-backgorund, '100');
+$base-backgorund-color: map.get(utils.$color-pallete, '0');
 $base-font-color: map.get(utils.$colors-font, '110');
-$cards-background-color: map.get(utils.$colors-backgorund, '100');
-$cards-font-color: map.get(utils.$colors-font, '110');
-$cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
 
 $container-extra-width: 4rem;
 
@@ -16,7 +13,7 @@ $container-extra-width: 4rem;
             display: flex;
             flex-direction: column;
             box-shadow: $base-font-color -5px 0px 20px -1px;
-            background-color: map.get(utils.$colors-backgorund, '100');
+            background-color: $base-backgorund-color;
             color: $base-font-color;
             width: utils.$cart-item-max-width + $container-extra-width;
         }
@@ -32,6 +29,7 @@ $container-extra-width: 4rem;
 
     &__checkout {
         margin-left: 3rem;
+        font-size: 1.2rem;
     }
     
 }

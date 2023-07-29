@@ -18,9 +18,8 @@
     }
     &__form-search {
         border-radius: .2rem;
-        // color:white;
         width: 15rem;
-        // background-color: map.get(utils.$colors-backgorund, '130');
+        background-color: map.get(utils.$colors-font, '210');
     }
 }
 

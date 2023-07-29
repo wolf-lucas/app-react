@@ -6,8 +6,8 @@
     align-items: center;
 
     &__header {
-        margin: 2rem 0rem 1rem 0rem;
-        left: 10%
+        margin: 2rem;
+        font-size: 1.2rem;
     }
 
     .top20-container {
@@ -27,6 +27,7 @@
         flex-direction: column;
         gap: .8rem;
         margin-bottom: 2rem;
+        font-size: 1.5rem;
 
         p {
             margin: auto;

@@ -18,14 +18,15 @@ const NavShoppingCart = () => {
   )
   
   const total = shopCart?.getTotal() ? shopCart?.getTotal() : 0
-  const divTotal = total == 0 ? <h1>Seleccione algun artículo</h1> : (
+  const divTotal = total == 0 ? <h2><i>Seleccione algún artículo</i></h2> : 
+  (
     <>
       <div className='shopping-cart__total'>
         <div className="shopping-cart__total-label">
-          <h4>Total</h4>
+          <h2>Total</h2>
         </div>
         <div className="shopping-cart__amount">
-          <h4>{`: ${ Currency.USD.format(total)}`}</h4>
+          <h2>{`: ${ Currency.USD.format(total)}`}</h2>
         </div>
       </div>
       <Link to="/checkout" className="shopping-cart__checkout btn">

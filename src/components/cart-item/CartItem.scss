@@ -7,11 +7,11 @@ $background-color: map.get(utils.$colors-font, '00');
 
 .shop-cart {
     
-
     &__card {
         margin: 1rem 0.5rem;
         box-shadow: $cards-glow-backgroud-color 0px 5px 15px;
         max-width: utils.$cart-item-max-width;
+        border-radius: 10px;
     }
     
     &__article {
