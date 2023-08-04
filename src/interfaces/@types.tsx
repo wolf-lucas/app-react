@@ -38,3 +38,7 @@ export type TFormContext<T> = {
     reqFields: T;
     setReqFields: React.Dispatch<React.SetStateAction<T>>;
 };
+
+export type TFormsViews<T> = {
+    [key: string]: ({}: T) => JSX.Element;
+  };

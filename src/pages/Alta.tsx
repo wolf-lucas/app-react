@@ -3,18 +3,20 @@ import Layout from "../layout/Layout";
 import Footer from "../layout/footer/Footer";
 import Header from "../layout/header/Header";
 import MainContent from "../layout/main-content/MainContent";
-import AltaForm from "../components/forms/AltaForm";
+import BaseForm from "../components/forms/BaseForm";
 
 import './Alta.scss'
 
 export default function Alta() {
+
+  const title = 'Formulario de Alta de Productos'
 
   return (
   < Layout >
     < Header />
       < MainContent >
           < FormProvider >
-            < AltaForm />
+            <BaseForm formTitle={title} formView='ALTA' />
           </ FormProvider >
       </ MainContent >
     < Footer />

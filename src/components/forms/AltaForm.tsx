@@ -7,41 +7,14 @@ import './Forms.scss'
 import { useFormContext } from "../../hooks/hooks";
 
 type Props = {
-  children?: React.ReactNode;
+  isDataValid: boolean;
+  handleSubmit: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const AltaForm = ({ children }: Props) => 
-{
-  const [ isDataValid, setIsDataValid ] = useState(false)
-  const { data, reqFields } = useFormContext();
-
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (isDataValid) {
-      alert('Datos enviados correctamente')
-    } else {
-      alert('Datos mal cargados, debe corregir la información');
-    }
-  }; 
-
-  useEffect(() => {
-    const allCompleted = Object.keys(reqFields).every(Object.prototype.hasOwnProperty.bind(data));
-    const commonKeys = Object.keys(reqFields).filter(key => data.hasOwnProperty(key));
-    const commonValues = commonKeys.map(key => data[key]);
-    const emptyCommonValues = commonValues.filter(x => x === null || x === undefined || x === '');
-
-    if (allCompleted && emptyCommonValues.length === 0 &&  commonValues.length === Object.keys(reqFields).length) {
-      setIsDataValid(true)
-    } else {
-      setIsDataValid(false)
-    }
-  }, [data])
- 
+const AltaForm = ({ isDataValid, handleSubmit }: Props) => 
+{ 
   return (
     <>
-       <div className="form-container">
-        <header className="form__header">
-          <h1>Formulario de Alta de Productos</h1>
-        </header>
         <div id="upload-form" className="form">
           < FormField label='Nombre del Producto' 
             name='productName' 
@@ -149,7 +122,6 @@ const AltaForm = ({ children }: Props) =>
             </Button>
           </div>
         </div>
-      </div>
     </>
   )
 };
