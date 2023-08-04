@@ -8,7 +8,7 @@ export default function CheckOut() {
         < Layout >
           < Header />
             < MainContent >
-                <h1>Pasame el CBU</h1>
+                <h1>Excelente! En breve te enviamos un link de compra.</h1>
             </ MainContent >
           < Footer />
         </ Layout >

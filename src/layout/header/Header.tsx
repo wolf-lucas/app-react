@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import NavBar from '../../components/navbar/NavBar';
 import { ShopCartContext } from '../../context/ShopCartContext';
 
@@ -8,12 +8,16 @@ import Button from '../../components/buttons/Buttons';
 const Header = () => {
   
   const shopCartCtx = useContext(ShopCartContext)
+  const [ activeNavMenu, setActiveNavMenu ] = useState(true)
+  const isVisible = shopCartCtx?.isCartVisible ? 'active' : ""
   
-  const toggleMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleCartMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     shopCartCtx?.toogleMenu()
   };
 
-  const isVisible = shopCartCtx?.isCartVisible ? 'active' : ""
+  const toggleNavMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setActiveNavMenu(!activeNavMenu)
+  };
 
   return (
     <>
@@ -23,11 +27,11 @@ const Header = () => {
             <i className="fa-solid fa-dice-d20"></i>
             <span className="logo__name"> Juguetería Cósmica</span>
           </div>
-          <NavBar />
-          <Button id="btn-nav-menu" className="btn btn--novisible">
+          <NavBar isMenuActive={activeNavMenu}/>
+          <Button id="btn-nav-menu" className="btn btn--novisible" onClick={toggleNavMenu}>
             <i className="fa-solid fa-bars"></i>
           </Button>
-          <Button id="btn-shop-cart" className={`btn ${isVisible}`} onClick={toggleMenu}>
+          <Button id="btn-shop-cart" className={`btn ${isVisible}`} onClick={toggleCartMenu}>
             <i className="fa-sharp fa-solid fa-cart-shopping"></i>
           </Button>
         </div>
