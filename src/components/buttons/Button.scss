@@ -1,6 +1,12 @@
 @use '../../utils';
 @use 'sass:map';
 
+button:disabled {
+    color:whitesmoke;
+    background-color: gray;
+    opacity: .2;
+}
+
 .btn {
     @include utils.background-color('100');
     @include utils.font-color('110');
@@ -37,9 +43,11 @@
             @include utils.font-color('210');
         }
     }
+
+    
 }
 
 .btn-compra {
-    width: auto;
     text-align: center;
 }
+

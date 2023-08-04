@@ -4,14 +4,16 @@
 $header-background-color: map.get(utils.$color-pallete, '0');
 $header-font-color: map.get(utils.$colors-font, '110');
 $max-width: 80rem;
+$glow-color: map.get(utils.$colors-font, '120');
 
 .header {
     background-color: $header-background-color;
+    box-shadow: 0px 0px 10px $glow-color;
     color: $header-font-color;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 10;
     width: 100%;
     grid-area: 'header';
 

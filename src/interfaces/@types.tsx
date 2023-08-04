@@ -1,7 +1,6 @@
 import { ICartItem } from "./cart/Cart";
 import { Item } from "./item/Item";
 
-
 export type TItemsContext = {
     items: Item[];
     filteredItems: Item[];
@@ -9,7 +8,7 @@ export type TItemsContext = {
     updateItem: (item: Item) => void;
     removeItem: (id: number) => void;
     searchItems: (text: string) => void;
-}
+};
 
 export type TApiResponse = {
     status: number;
@@ -28,4 +27,14 @@ export type TShopCartContext = {
     getTotal(): number;
     toogleMenu: () => void;
     isCartVisible: boolean;
-}
+};
+
+export type TFormContext<T> = {
+    data: T;
+    set: React.Dispatch<React.SetStateAction<T>>;
+    get: <K extends keyof T>(key: K) => T[K];
+    errors: T;
+    setErrors: React.Dispatch<React.SetStateAction<T>>;
+    reqFields: T;
+    setReqFields: React.Dispatch<React.SetStateAction<T>>;
+};

@@ -1,9 +1,8 @@
 import './SlickSlider.scss';
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ItemsContext } from "../../context/ItemsContext";
 import Card from '../cards/Card';
 import CardPreLoader from '../cards/CardPreLoader';
-import { Item } from '../../interfaces/item/Item';
 
 function SlickSlider() {
 

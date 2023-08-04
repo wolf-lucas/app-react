@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FormContext } from "../context/FormContext";
+import { DataForm } from "../interfaces/forms/FormData";
+import { TFormContext } from "../interfaces/@types";
 
-export default function useAPIGet(url: string)
+export function useAPIGet(url: string)
 {
   const [status, setStatus] = useState<number>(0);
   const [data, setData] = useState<any>(null);
@@ -29,3 +32,5 @@ export default function useAPIGet(url: string)
 
   return { status, statusText, data, error, loading };
 }
+
+export const useFormContext = () => useContext(FormContext) as TFormContext<DataForm>;

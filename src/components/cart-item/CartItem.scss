@@ -1,22 +1,21 @@
 @use '../../utils';
 @use 'sass:map';
 
-$cards-glow-backgroud-color: map.get(utils.$colors-font, '120');
+$cards-glow-backgroud-color: map.get(utils.$colors-font, '210');
 $cards-font-color: map.get(utils.$colors-font, '200');
 $background-color: map.get(utils.$colors-font, '00');
 
-.shop-cart {
-    
+.shop-cart {    
     &__card {
         margin: 1rem 0.5rem;
-        box-shadow: $cards-glow-backgroud-color 0px 5px 15px;
+        box-shadow: $cards-glow-backgroud-color 0px 0px 15px;
         max-width: utils.$cart-item-max-width;
         border-radius: 10px;
     }
     
     &__article {
         display: flex;
-        background-color: $background-color;
+        background-color: #D9D9D9;
         border: 0.5px solid #000;
         border-radius: 10px;
         color: #000;

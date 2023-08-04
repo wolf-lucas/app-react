@@ -18,7 +18,7 @@ const NavShoppingCart = () => {
   )
   
   const total = shopCart?.getTotal() ? shopCart?.getTotal() : 0
-  const divTotal = total == 0 ? <h2><i>Seleccione algún artículo</i></h2> : 
+  const divTotal = total === 0 ? <h2><i>Seleccione algún artículo</i></h2> : 
   (
     <>
       <div className='shopping-cart__total'>

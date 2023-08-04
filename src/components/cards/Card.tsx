@@ -30,14 +30,12 @@ const Card = ({ item }: Props) => {
 
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.currentTarget.value)
-    console.log(value)
     value ? setFormQty(value) : setFormQty(0)
     value > 0 ? setIsValid(true) : setIsValid(false)
   }
 
   const addBtn = () => {
     setFormQty(formQty + 1)
-    console.log('Esto es el form', formQty)
     formQty > 0 ? setIsValid(true) : setIsValid(false)
   } 
 

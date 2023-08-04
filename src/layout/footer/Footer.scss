@@ -3,17 +3,18 @@
 
 $background-color: map.get(utils.$color-pallete, '0');
 $font-color: map.get(utils.$colors-font, '110');
+$glow-color: map.get(utils.$colors-font, '120');
 
 .footer {
   height: 300px;
   grid-area: 'footer';
+  background-color: $background-color;
+  color: #bbb;
 
   &__container {
     padding-top: 2rem;
     height: 100%;
     width: 100%;
-    background-color: $background-color;
-    color: #bbb;
 
     .logo {
       text-align: center;

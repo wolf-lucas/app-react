@@ -1,0 +1,43 @@
+@use '../../utils';
+@use 'sass:map';
+
+$glow-color: map.get(utils.$colors-font, '120');
+
+.field {
+    margin: 1rem;
+    align-items: center;
+
+    &__label {
+        margin: 0.8rem;
+    }
+   
+    &__style {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        color: map.get(utils.$color-pallete, '0');
+        border: none;
+        transition: all 300ms linear;
+        background-color: #d2d2d2;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 4px 5px 0 $glow-color;
+        }
+
+        &.valid {
+            box-shadow: 0 0px 10px 0 greenyellow;
+        }
+
+        &.invalid {
+            box-shadow: 0 0px 10px 0 red;
+        }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

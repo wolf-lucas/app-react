@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState} from "react";
 import { TItemsContext, TApiResponse } from "../interfaces/@types";
-import useAPIGet from "../hooks/api";
+import { useAPIGet } from "../hooks/hooks";
 import { Item } from "../interfaces/item/Item";
 import { API } from "../config";
 

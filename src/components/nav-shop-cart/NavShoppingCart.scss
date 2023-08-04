@@ -7,15 +7,18 @@ $base-font-color: map.get(utils.$colors-font, '110');
 $container-extra-width: 4rem;
 
 .shopping-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     &__container {
-
+                
         &.active {
             display: flex;
             flex-direction: column;
             box-shadow: $base-font-color -5px 0px 20px -1px;
-            background-color: $base-backgorund-color;
             color: $base-font-color;
-            width: utils.$cart-item-max-width + $container-extra-width;
+            width: calc(utils.$cart-item-max-width + $container-extra-width);
         }
     }
 
@@ -24,11 +27,13 @@ $container-extra-width: 4rem;
         padding-right: $container-extra-width - 2;
         display: flex;
         justify-content: right;
-        align-items: center;
+        
     }
 
     &__checkout {
-        margin-left: 3rem;
+        text-align: center;
+        width: 50%;
+        margin: 1rem;
         font-size: 1.2rem;
     }
     
