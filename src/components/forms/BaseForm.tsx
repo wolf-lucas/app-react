@@ -4,6 +4,8 @@ import './Forms.scss'
 import { useFormContext } from "../../hooks/hooks";
 import ContactForm from "./ContactForm";
 import AltaForm from "./AltaForm";
+import { API } from "../../config";
+import { DataForm } from "../../interfaces/forms/FormData";
 
 type Props = {
   formTitle: string;
@@ -18,14 +20,35 @@ const FormsViews = {
 
 const BaseForm = ({ formTitle, formView }: Props) => {
   const [ isDataValid, setIsDataValid ] = useState(false)
-  const { data, reqFields, errors} = useFormContext();
-
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (isDataValid) {
-      alert('Datos enviados correctamente')
-    } else {
+  const { data, set, reqFields, errors, setIsSubmitted } = useFormContext();
+  
+  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (!isDataValid) {
       alert('Datos mal cargados, debe corregir la información');
     }
+
+    try {
+      const uri = formView == 'ALTA' ? (API.URL + API.TABLES.ITEMS) : (formView == 'CONTACTO' ? (API.URL + API.TABLES.QUERIES) : "")
+      const response = await fetch(uri, 
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.ok) {
+        setIsSubmitted(true)
+        set({} as DataForm)
+        alert("Los datos se enviaron correctamente.");
+      } else {
+          throw new Error(`Error al enviar los datos al servidor. Endpoint: ${uri}.`);
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      alert('Ocurrió un error al enviar los datos.');
+  }
   };
 
   const SelectedForm = (form: keyof typeof FormsViews) => {

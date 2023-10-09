@@ -15,7 +15,7 @@ const AltaForm = ({ isDataValid, handleSubmit }: Props) =>
     <>
         <div id="upload-form" className="form">
           < FormField label='Nombre del Producto' 
-            name='productName' 
+            name='name' 
             type='text'
             maxLength={40}
             minLength={3}

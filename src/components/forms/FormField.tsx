@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFormContext } from "../../hooks/hooks";
 
 import './FormField.scss'
+import { convertImageToBase64 } from "../../services";
 
 type FieldProps = {
   label: string,
@@ -35,7 +36,7 @@ const FormField = (props: FieldProps) =>
   const itemsSelection = props.options ? 
       props.options.map((opt, index) => (<option key={index} value={opt}>{opt}</option>)) 
       : undefined;
-  const { data, set , errors, setErrors, reqFields, setReqFields} = useFormContext();
+  const { data, set , errors, setErrors, reqFields, setReqFields, isSubmitted} = useFormContext();
   const [ value, setValue ] = useState('')
   const [ isChecked, setIsChecked ] = useState(false);
   const [ errorMsg, setErrorMsg ] = useState('')
@@ -45,8 +46,14 @@ const FormField = (props: FieldProps) =>
   useEffect(() => {
     if (props.isRequired) {
       setReqFields(Object.assign(reqFields, { [idName] : 'required' }));
-  }
-  }, [])
+    }
+    if (isSubmitted) {
+      setValue('')
+      setClassName('field__style')
+      setFile(undefined)
+      setIsChecked(false)
+    }
+  }, [data])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement> ) => {
     const { name, value } = e.target;
@@ -65,14 +72,15 @@ const FormField = (props: FieldProps) =>
     validateInput(value, name)
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target
-    if (files) {
-      setFile(files[0]);
+    if (files && files.length > 0) {
+      const img = await convertImageToBase64(files[0]);
+      setFile(files[0])
+      // setValue(value)
       setClassName("field__style valid")
-      setValue(value)
       validateInput(value, name)
-      set(({ ...data, [name]: value }));
+      set(({ ...data, [name]: img }));
     } else {
       setClassName("field__style invalid")
     }
@@ -109,11 +117,11 @@ const FormField = (props: FieldProps) =>
   const jsxInput = (
     <input className={className}
       id={idName}
-      value={data.idName}
+      value={props.type === 'file' ? data.idName : value}
       onChange={props.type === 'file' ? handleFileChange : handleChange}
       onBlur={handleBlur}
       placeholder={props.placeholder}
-      name={idName} 
+      name={idName}
       type={props.type} 
       maxLength={props.maxLength}
       minLength={props.minLength}

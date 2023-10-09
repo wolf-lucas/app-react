@@ -37,6 +37,8 @@ export type TFormContext<T> = {
     setErrors: React.Dispatch<React.SetStateAction<T>>;
     reqFields: T;
     setReqFields: React.Dispatch<React.SetStateAction<T>>;
+    isSubmitted: boolean;
+    setIsSubmitted:  React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type TFormsViews<T> = {
