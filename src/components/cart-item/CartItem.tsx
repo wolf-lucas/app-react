@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ICartItem } from '../../interfaces/cart/Cart';
 import { ShopCartContext } from '../../context/ShopCartContext';
 import { Currency } from '../../config';
@@ -17,7 +17,6 @@ const CartItem = ({ item }: Props) => {
   const removeItem = () => {
     if (item) {
       shopCart?.removeItem(item.id)
-      setItemQty(0)
     }
   }
 
@@ -33,6 +32,10 @@ const CartItem = ({ item }: Props) => {
       removeItem()
     }
   }
+
+  useEffect(() => {
+    setItemQty(item.quantity)
+  }, [shopCart?.total])
 
   return (
     <>

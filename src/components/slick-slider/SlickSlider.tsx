@@ -8,7 +8,7 @@ function SlickSlider() {
 
   const ctx = useContext(ItemsContext)
   const items = ctx?.items ? ctx?.items : []
-  const sortedItems = [...items].sort((a, b) => a.sold_qty - b.sold_qty)
+  const sortedItems = [...items].sort((a, b) => a.soldQty - b.soldQty)
   const itemsPerSlide = 5
   const [currentSlide, setCurrentSlide] = useState(0)
 

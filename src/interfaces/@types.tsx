@@ -4,9 +4,6 @@ import { Item } from "./item/Item";
 export type TItemsContext = {
     items: Item[];
     filteredItems: Item[];
-    addItem: (item: Item) => void;
-    updateItem: (item: Item) => void;
-    removeItem: (id: number) => void;
     searchItems: (text: string) => void;
 };
 

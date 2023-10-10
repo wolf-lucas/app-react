@@ -36,7 +36,7 @@ const FormField = (props: FieldProps) =>
   const itemsSelection = props.options ? 
       props.options.map((opt, index) => (<option key={index} value={opt}>{opt}</option>)) 
       : undefined;
-  const { data, set , errors, setErrors, reqFields, setReqFields, isSubmitted} = useFormContext();
+  const { data, set , errors, setErrors, reqFields, setReqFields, isSubmitted, setIsSubmitted} = useFormContext();
   const [ value, setValue ] = useState('')
   const [ isChecked, setIsChecked ] = useState(false);
   const [ errorMsg, setErrorMsg ] = useState('')
@@ -52,6 +52,7 @@ const FormField = (props: FieldProps) =>
       setClassName('field__style')
       setFile(undefined)
       setIsChecked(false)
+      setIsSubmitted(false)
     }
   }, [data])
 

@@ -37,7 +37,7 @@ const Card = ({ item }: Props) => {
   const addBtn = () => {
     setFormQty(formQty + 1)
     formQty > 0 ? setIsValid(true) : setIsValid(false)
-  } 
+  }
 
   return (
     <div className="card">
@@ -51,9 +51,9 @@ const Card = ({ item }: Props) => {
         </div>
         <div className="card__content">
           <h3 className="card__heading">{item.name}</h3>
-          <h5 className="card__brand">{item.product}</h5>
+          <h5 className="card__brand">{item.brand}</h5>
           <p className="card__description">
-            {item.description}
+            {item.shortDesc}
           </p>
         <div className="card__price-container">
           <h5 className="card__price">{Currency.USD.format(item.price)}</h5>

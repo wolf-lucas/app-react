@@ -35,8 +35,8 @@ function ShopppingCartProvider({ children }: Props) {
         quantity: quantity,
       };
       setCartItems([...cartItems, newItem])
-      setTotal(getTotal())
     }
+    setTotal(getTotal())
   }
 
   const removeItem = (itemId: number): void => {

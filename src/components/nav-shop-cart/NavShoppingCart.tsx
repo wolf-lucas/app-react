@@ -16,7 +16,7 @@ const NavShoppingCart = () => {
         < CartItem key={idx} item={item} />
       )
   )
-  
+  // 
   const total = shopCart?.getTotal() ? shopCart?.getTotal() : 0
   const divTotal = total === 0 ? <h2><i>Seleccione algún artículo</i></h2> : 
   (

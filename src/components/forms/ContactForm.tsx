@@ -14,7 +14,7 @@ const ContactForm = ({ isDataValid, handleSubmit }: Props) =>
   <>
     <div id="contact-form" className="form">
       < FormField label='Tu Nombre' 
-                  name='username' 
+                  name='name' 
                   type='text'
                   maxLength={40}
                   validate={validateFormInput}
